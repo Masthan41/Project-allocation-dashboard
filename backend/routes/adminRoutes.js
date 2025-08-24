@@ -1,6 +1,8 @@
+// adminRoutes.js
 import express from 'express';
-import { adminLogin, getAllUsers, getAllProjects } from '../controllers/adminController.js';
+import { login as adminLogin } from '../controllers/userController.js'; // <-- use login from userController
 import { verifyAdmin } from '../middleware/authMiddleware.js';
+import { getAllUsers, getAllProjects } from '../controllers/adminController.js'; // make sure these exist
 
 const router = express.Router();
 
