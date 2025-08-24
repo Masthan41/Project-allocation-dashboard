@@ -18,7 +18,11 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://projectallocationsfrontend.netlify.app"
+    ],
     methods: ["GET", "POST"]
   }
 });
@@ -27,7 +31,14 @@ const io = new Server(httpServer, {
 connectDB();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173", // dev
+    "http://localhost:3000", // dev (React default)
+    "https://projectallocationsfrontend.netlify.app" // ✅ production
+  ],
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
