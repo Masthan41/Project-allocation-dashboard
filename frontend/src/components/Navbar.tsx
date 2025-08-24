@@ -174,13 +174,13 @@ const Navbar: React.FC = () => {
                       <User className="h-4 w-4 mr-2" />
                       Profile
                     </Link>
-                    <Link
+                    {/* <Link
                       to="/settings"
                       className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                     >
                       <Settings className="h-4 w-4 mr-2" />
                       Settings
-                    </Link>
+                    </Link> */}
                     <button
                       onClick={handleLogout}
                       className="w-full flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"

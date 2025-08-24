@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { 
-  Users, 
-  BookOpen, 
-  Clock, 
-  CheckCircle,
-  XCircle,
-  Plus,
-  Search,
-  Filter,
-  Eye,
-  UserPlus,
-  Settings,
-  TrendingUp,
-  Calendar,
-  Target,
-  Award,
-  Edit,
-  Trash2
+    Users, 
+    BookOpen, 
+    Clock, 
+    CheckCircle,
+    XCircle,
+    Plus,
+    Search,
+    Filter,
+    Eye,
+    UserPlus,
+    Settings,
+    TrendingUp,
+    Calendar,
+    Target,
+    Award,
+    Edit,
+    Trash2
 } from 'lucide-react';
+
+// Add these imports for navigation
+import { useNavigate } from 'react-router-dom';
 import { applicationService } from '../services/applicationService';
 import { projectService } from '../services/projectService';
 import { batchService } from '../services/batchService';
@@ -63,11 +66,11 @@ const AdminDashboard: React.FC = () => {
 
   const loadAdminData = async () => {
     try {
-      const [applicationsRes, projectsRes, batchesRes] = await Promise.all([
-        applicationService.getAllApplications(),
-        projectService.getProjects(),
-        batchService.getBatches()
-      ]);
+    const [applicationsRes, projectsRes, batchesRes] = await Promise.all([
+      applicationService.getAllApplications(),
+      projectService.getProjects(),
+      batchService.getBatches()
+    ]);
       
       setApplications(applicationsRes.applications || []);
       setProjects(projectsRes.projects || []);
@@ -525,14 +528,7 @@ const AdminDashboard: React.FC = () => {
                         )}
                       </div>
                       <div className="flex space-x-2">
-                        <button className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm flex items-center justify-center space-x-1 transition-colors duration-200">
-                          <Edit className="h-4 w-4" />
-                          <span>Edit</span>
-                        </button>
-                        <button className="flex-1 bg-red-100 hover:bg-red-200 text-red-700 px-3 py-2 rounded-lg text-sm flex items-center justify-center space-x-1 transition-colors duration-200">
-                          <Trash2 className="h-4 w-4" />
-                          <span>Delete</span>
-                        </button>
+                      
                       </div>
                     </div>
                   ))}
@@ -591,14 +587,14 @@ const AdminDashboard: React.FC = () => {
                       </div>
 
                       <div className="flex space-x-2">
-                        <button className="flex-1 bg-primary-100 hover:bg-primary-200 text-primary-700 px-3 py-2 rounded-lg text-sm flex items-center justify-center space-x-1 transition-colors duration-200">
+                        {/* <button className="flex-1 bg-primary-100 hover:bg-primary-200 text-primary-700 px-3 py-2 rounded-lg text-sm flex items-center justify-center space-x-1 transition-colors duration-200">
                           <Settings className="h-4 w-4" />
                           <span>Manage</span>
-                        </button>
-                        <button className="flex-1 bg-secondary-100 hover:bg-secondary-200 text-secondary-700 px-3 py-2 rounded-lg text-sm flex items-center justify-center space-x-1 transition-colors duration-200">
+                        </button> */}
+                        {/* <button className="flex-1 bg-secondary-100 hover:bg-secondary-200 text-secondary-700 px-3 py-2 rounded-lg text-sm flex items-center justify-center space-x-1 transition-colors duration-200">
                           <TrendingUp className="h-4 w-4" />
                           <span>Update Progress</span>
-                        </button>
+                        </button> */}
                       </div>
                     </div>
                   ))}
