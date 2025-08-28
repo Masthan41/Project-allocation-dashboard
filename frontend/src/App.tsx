@@ -10,6 +10,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import Projects from './pages/Projects';
 import MyApplications from './pages/MyApplications';
 import Profile from './pages/Profile';
+import Analytics from './pages/Analytics';
 import LoadingSpinner from './components/LoadingSpinner';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -112,6 +113,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/analytics"
+              element={
+                <ProtectedRoute>
+                  <Analytics />
                 </ProtectedRoute>
               }
             />
