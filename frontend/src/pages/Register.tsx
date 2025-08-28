@@ -147,7 +147,7 @@ const Register: React.FC = () => {
                   className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
                 >
                   <option value="user">Student/User</option>
-                  <option value="admin">Administrator</option>
+                  {/* <option value="admin">Administrator</option> */}
                 </select>
               </div>
               <p className="mt-1 text-xs text-gray-500">
