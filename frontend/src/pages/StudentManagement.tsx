@@ -135,27 +135,20 @@ const StudentManagement: React.FC = () => {
     }
   };
 
-const handleEditStudent = () => {
-  if (!selectedStudent) return;
-
-  setStudents(prev => prev.map(s => 
-    s.id === selectedStudent.id 
-      ? {
-          ...s,
-          name: editForm.name,
-          email: editForm.email,
-          role: editForm.role,
-          assignedRole: editForm.assignedRole || undefined,
-          currentBatch: editForm.currentBatch || undefined
-        }
-      : s
-  ));
-
-  toast.success('Student updated successfully');
-  setShowEditModal(false);
-  setSelectedStudent(null);
-};
-
+  const handleEditStudent = () => {
+    if (!selectedStudent) return;
+    
+    // Update student data
+    setStudents(prev => prev.map(s => 
+      s.id === selectedStudent.id 
+        ? { ...s, ...editForm }
+        : s
+    ));
+    
+    toast.success('Student updated successfully');
+    setShowEditModal(false);
+    setSelectedStudent(null);
+  };
 
   const handleDeleteStudent = (studentId: string) => {
     setStudents(prev => prev.filter(s => s.id !== studentId));

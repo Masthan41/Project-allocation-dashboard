@@ -14,7 +14,9 @@ import {
   Plus,
   Edit,
   Trash2,
-  User
+  User,
+  X,       // add this
+  Award    // add this
 } from 'lucide-react';
 import { batchService } from '../services/batchService';
 import { Batch } from '../types';
@@ -640,9 +642,9 @@ const TeamCollaboration: React.FC = () => {
                 >
                   <option value="">Select team member</option>
                   {batch?.members.map((member) => (
-                    <option key={member.user._id} value={member.user._id}>
-                      {member.user.name} ({member.role})
-                    </option>
+                  <option key={member.user?._id} value={member.user?._id}>
+  {member.user?.name} ({member.role})
+</option>
                   ))}
                 </select>
               </div>
