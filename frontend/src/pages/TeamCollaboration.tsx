@@ -241,8 +241,9 @@ const TeamCollaboration: React.FC = () => {
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Team Collaboration</h1>
           <p className="mt-2 text-gray-600">
-            Collaborate with your team members on {batch?.project.title}
-          </p>
+  Collaborate with your team members on {batch?.project?.title || 'Project not available'}
+</p>
+
         </div>
 
         {/* Team Info Card */}
@@ -265,7 +266,7 @@ const TeamCollaboration: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 className="text-sm font-medium text-gray-700 mb-2">Project Details</h3>
-              <p className="text-gray-600">{batch?.project.title}</p>
+              <p className="text-gray-600">{batch?.project?.title}</p>
             </div>
             <div>
               <h3 className="text-sm font-medium text-gray-700 mb-2">Team Members</h3>

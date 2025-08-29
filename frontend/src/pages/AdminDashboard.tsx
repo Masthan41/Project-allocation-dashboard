@@ -1010,7 +1010,7 @@ const AdminDashboard: React.FC = () => {
 
   const filteredApplications = applications.filter(app => {
     const matchesSearch = app.user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         app.project.title.toLowerCase().includes(searchTerm.toLowerCase());
+                         app.project?.title.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus = statusFilter === 'all' || app.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
@@ -1158,7 +1158,7 @@ const AdminDashboard: React.FC = () => {
                         <div key={application._id} className="flex items-center justify-between p-3 bg-white rounded-lg hover:shadow-sm transition-shadow duration-200">
                           <div className="flex-1">
                             <p className="font-medium text-gray-900">{application.user.name}</p>
-                            <p className="text-sm text-gray-600">{application.project.title}</p>
+                            <p className="text-sm text-gray-600">{application.project?.title}</p>
                             <p className="text-xs text-gray-500">
                               {new Date(application.createdAt).toLocaleDateString()}
                             </p>
@@ -1190,7 +1190,7 @@ const AdminDashboard: React.FC = () => {
                             <p className="font-medium text-gray-900">{batch.name}</p>
                             <StatusBadge status={batch.status} type="batch" />
                           </div>
-                          <p className="text-sm text-gray-600">{batch.project.title}</p>
+                          <p className="text-sm text-gray-600">{batch.project?.title}</p>
                           <div className="mt-2 flex items-center justify-between">
                             <span className="text-xs text-gray-500">
                               {batch.members.length}/{batch.maxMembers} members
@@ -1321,10 +1321,10 @@ const AdminDashboard: React.FC = () => {
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="text-sm font-medium text-gray-900">
-                                {application.project.title}
+                                {application.project?.title}
                               </div>
                               <div className="text-sm text-gray-500">
-                                {application.project.difficulty}
+                                {application.project?.difficulty}
                               </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">

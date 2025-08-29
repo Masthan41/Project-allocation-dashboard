@@ -287,7 +287,7 @@ const Analytics: React.FC = () => {
                       {application.user.name}
                     </p>
                     <p className="text-xs text-gray-500 truncate">
-                      Applied to {application.project.title}
+                      Applied to {application.project?.title}
                     </p>
                   </div>
                   <div className="text-xs text-gray-400">
