@@ -79,6 +79,15 @@ const Analytics: React.FC = () => {
   const averageProgress = batches.length > 0 ? 
     Math.round(batches.reduce((sum, batch) => sum + batch.progress, 0) / batches.length) : 0;
 
+  // Calculate additional stats
+  const stats = {
+    totalApplications: applications.length,
+    pendingApplications: applications.filter(app => app.status === 'pending').length,
+    totalProjects: projects.length,
+    activeProjects: projects.filter(p => p.status === 'active').length,
+    activeBatches: batches.filter(b => b.status === 'active').length
+  };
+
   // Project difficulty distribution
   const difficultyStats = projects.reduce((acc, project) => {
     acc[project.difficulty] = (acc[project.difficulty] || 0) + 1;
@@ -97,14 +106,6 @@ const Analytics: React.FC = () => {
     acc[month] = (acc[month] || 0) + 1;
     return acc;
   }, {} as Record<string, number>);
-
-  // Stats for summary cards
-  const stats = {
-    pendingApplications: applications.filter(app => app.status === 'pending').length,
-    activeProjects: projects.filter(
-      project => project.status === 'active' || project.status === 'open'
-    ).length
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">

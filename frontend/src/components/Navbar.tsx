@@ -92,12 +92,22 @@ const Navbar: React.FC = () => {
                 Analytics
               </Link>
             )}
+            {user.role === 'admin' && (
+              <Link to="/students" className={getNavLinkClass('/students')}>
+                Students
+              </Link>
+            )}
+            {user.role === 'admin' && (
+              <Link to="/timeline" className={getNavLinkClass('/timeline')}>
+                Timeline
+              </Link>
+            )}
             <Link to="/my-applications" className={getNavLinkClass('/my-applications')}>
               My Applications
             </Link>
             {user.currentBatch && (
-              <Link to="/my-batch" className={getNavLinkClass('/my-batch')}>
-                My Batch
+              <Link to="/team" className={getNavLinkClass('/team')}>
+                Team
               </Link>
             )}
           </div>
@@ -255,11 +265,29 @@ const Navbar: React.FC = () => {
               </Link>
               {user.currentBatch && (
                 <Link
-                  to="/my-batch"
-                  className={getNavLinkClass('/my-batch')}
+                  to="/team"
+                  className={getNavLinkClass('/team')}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  My Batch
+                  Team
+                </Link>
+              )}
+              {user.role === 'admin' && (
+                <Link
+                  to="/students"
+                  className={getNavLinkClass('/students')}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Students
+                </Link>
+              )}
+              {user.role === 'admin' && (
+                <Link
+                  to="/timeline"
+                  className={getNavLinkClass('/timeline')}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Timeline
                 </Link>
               )}
             </div>

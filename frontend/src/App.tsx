@@ -11,6 +11,10 @@ import Projects from './pages/Projects';
 import MyApplications from './pages/MyApplications';
 import Profile from './pages/Profile';
 import Analytics from './pages/Analytics';
+import TeamCollaboration from './pages/TeamCollaboration';
+import StudentManagement from './pages/StudentManagement';
+import ProjectTimeline from './pages/ProjectTimeline';
+import Settings from './pages/Settings';
 import LoadingSpinner from './components/LoadingSpinner';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -121,6 +125,38 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Analytics />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/team"
+              element={
+                <ProtectedRoute>
+                  <TeamCollaboration />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/students"
+              element={
+                <ProtectedRoute>
+                  <StudentManagement />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/timeline"
+              element={
+                <ProtectedRoute>
+                  <ProjectTimeline />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <ProtectedRoute>
+                  <Settings />
                 </ProtectedRoute>
               }
             />
