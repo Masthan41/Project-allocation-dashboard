@@ -33,7 +33,7 @@ const io = new Server(httpServer, {
     origin: [
       "http://localhost:5173",
       "http://localhost:3000",
-      "https://projectallocations.netlify.app"
+      "https://projectallocations.netlify.app/"
     ],
     methods: ["GET", "POST"]
   }
@@ -47,7 +47,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173", // dev
     "http://localhost:3000", // dev (React default)
-    "https://projectallocations.netlify.app" // ✅ production
+    "https://projectallocations.netlify.app/" // ✅ production
   ],
   credentials: true
 }));
