@@ -17,15 +17,15 @@ dotenv.config();
 const app = express();
 const httpServer = createServer(app);
 
-app.use(cors({
-  origin: [
-    "http://localhost:5173", 
-    "http://localhost:3000",
-    "https://projectallocations.netlify.app",   // ✅ actual frontend domain
-    "https://projectallocations.netlify.app" // (keep if you have both)
-  ],
-  credentials: true
-}));
+// app.use(cors({
+//   origin: [
+//     "http://localhost:5173", 
+//     "http://localhost:3000",
+//     "https://projectallocations.netlify.app",   // ✅ actual frontend domain
+//     "https://projectallocations.netlify.app" // (keep if you have both)
+//   ],
+//   credentials: true
+// }));
 
 
 const io = new Server(httpServer, {
@@ -47,7 +47,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173", // dev
     "http://localhost:3000", // dev (React default)
-    "https://projectallocationsfrontend.netlify.app" // ✅ production
+    "https://projectallocations.netlify.app" // ✅ production
   ],
   credentials: true
 }));
